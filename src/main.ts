@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { spawn } from 'child_process';
-const { app/* , Menu*/, Tray, BrowserWindow, ipcMain } = require('electron');
+const { app/* , Menu, Tray*/, BrowserWindow, ipcMain } = require('electron');
 const DEV_MODE = process.env.NODE_ENV === 'development';
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -11,11 +11,11 @@ let mainWindow: any;
 ipcMain.on('dropFile', (event, path) => {
     const job = spawn('ffmpeg', ['-i', path, '-f', 'mp3', `${path}.mp3`]);
 
-    job.stdout.on('data', (data) => {
+    job.stdout.on('data', data => {
         console.log(`stdout: ${data}`);
     });
 
-    job.stderr.on('data', (data) => {
+    job.stderr.on('data', data => {
         console.log(`stderr: ${data}`);
     });
 
@@ -66,7 +66,7 @@ const createWindow = () => {
         // tslint:disable-next-line:no-null-keyword
         mainWindow = null;
     });
-}
+};
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

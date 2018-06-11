@@ -6,8 +6,9 @@
   "scripts": {
     "build": "react-ts-runtime build && tsc src/main.ts --lib es5,es6,es7,dom --outDir dist",
     "start": "bash ./scripts/start.sh",
-    "test": "echo 'test'",
-    "package:mac": "bash ./scripts/package.sh"
+    "test": "npm audit && tslint --project .",
+    "package:mac": "bash ./scripts/package.sh",
+    "githooks": "bash ./scripts/githooks.sh"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "electron": "^2.0.2",
     "electron-packager": "^12.1.0",
-    "react-ts-runtime": "0.0.13"
+    "react-ts-runtime": "0.0.13",
+    "tslint": "^5.10.0"
   }
 }

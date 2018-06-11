@@ -15,8 +15,10 @@ export default class App extends React.Component {
 
                     node.addEventListener('drop', e => {
                         if (e.dataTransfer.files.length) {
+                            // tslint:disable-next-line:prefer-for-of
                             for (let i = 0; i < e.dataTransfer.files.length; i += 1) {
                                 const file = e.dataTransfer.files[i];
+                                // tslint:disable-next-line:no-any
                                 ipcRenderer.send('dropFile', (file as any).path);
                             }
                         }
