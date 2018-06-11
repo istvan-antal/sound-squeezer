@@ -1,0 +1,33 @@
+{
+  "name": "sound-squeezer",
+  "version": "0.0.1",
+  "description": "Sound compression utility.",
+  "main": "./src/index",
+  "scripts": {
+    "build": "react-ts-runtime build && tsc src/main.ts --lib es5,es6,es7,dom --outDir dist",
+    "start": "bash ./scripts/start.sh",
+    "test": "echo 'test'",
+    "package:mac": "bash ./scripts/package.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/istvan-antal/sound-squeezer.git"
+  },
+  "keywords": [
+    "sound",
+    "mp3",
+    "mp4",
+    "convert"
+  ],
+  "author": "István Antal <i@istvan.xyz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/istvan-antal/sound-squeezer/issues"
+  },
+  "homepage": "https://github.com/istvan-antal/sound-squeezer#readme",
+  "devDependencies": {
+    "electron": "^2.0.2",
+    "electron-packager": "^12.1.0",
+    "react-ts-runtime": "0.0.13"
+  }
+}
