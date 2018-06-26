@@ -4,7 +4,7 @@
   "description": "Sound compression utility.",
   "main": "./src/index",
   "scripts": {
-    "build": "react-ts-runtime build && tsc src/main.ts --lib es5,es6,es7,dom --outDir dist",
+    "build": "bash ./scripts/build.sh",
     "start": "bash ./scripts/start.sh",
     "test": "npm audit && tslint --project .",
     "package:mac": "bash ./scripts/package.sh",
@@ -29,7 +29,8 @@
   "devDependencies": {
     "electron": "^2.0.2",
     "electron-packager": "^12.1.0",
-    "react-ts-runtime": "0.0.13",
-    "tslint": "^5.10.0"
+    "react-ts-runtime": "0.0.14",
+    "tslint": "^5.10.0",
+    "rimraf": "^2.6.2"
   }
 }

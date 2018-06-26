@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { spawn } from 'child_process';
+import { platform } from 'os';
 const { app/* , Menu, Tray*/, BrowserWindow, ipcMain } = require('electron');
 const DEV_MODE = process.env.NODE_ENV === 'development';
 
@@ -8,8 +9,10 @@ const DEV_MODE = process.env.NODE_ENV === 'development';
 // tslint:disable-next-line:no-any
 let mainWindow: any;
 
-ipcMain.on('dropFile', (event, path) => {
-    const job = spawn('ffmpeg', ['-i', path, '-f', 'mp3', `${path}.mp3`]);
+ipcMain.on('dropFile', (event: {}, path: string) => {
+    const arch = (platform() === 'win32') ? 'win64' : 'macos64';
+    const ext = (arch === 'win64') ? '.exe' : '';
+    const job = spawn(`${__dirname}/bin/ffmpeg${ext}`, ['-i', path, '-f', 'mp3', `${path}.mp3`]);
 
     job.stdout.on('data', data => {
         console.log(`stdout: ${data}`);
