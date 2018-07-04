@@ -1,16 +1,14 @@
 import * as React from 'react';
 
-type ElementFunction = () => JSX.Element;
-
 interface Props {
-    view: { new(): React.Component } | ElementFunction;
     onDropFile(file: string): void;
+    onDragEnter(): void;
+    onDragLeave(): void;
 }
 
 export default class DroZone extends React.Component<Props> {
     render() {
         const classes = 'App';
-        const View = this.props.view;
         return (
             <div
                 ref={node => {
@@ -31,14 +29,21 @@ export default class DroZone extends React.Component<Props> {
                         e.stopPropagation();
                     });
 
-                    node.addEventListener('dragover', e => {
+                    node.addEventListener('dragenter', e => {
+                        this.props.onDragEnter();
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+
+                    node.addEventListener('dragleave', e => {
+                        this.props.onDragLeave();
                         e.preventDefault();
                         e.stopPropagation();
                     });
                 }}
                 className={classes}
             >
-                <View />
+                {this.props.children}
             </div>
         );
     }
