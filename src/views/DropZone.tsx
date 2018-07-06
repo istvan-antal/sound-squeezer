@@ -1,16 +1,17 @@
 import * as React from 'react';
 
 interface Props {
+    className?: string;
     onDropFile(file: string): void;
     onDragEnter(): void;
     onDragLeave(): void;
 }
 
-export default class DroZone extends React.Component<Props> {
+export default class DropZone extends React.Component<Props> {
     render() {
-        const classes = 'App';
         return (
             <div
+                className={this.props.className}
                 ref={node => {
                     if (!node) {
                         return;
@@ -41,7 +42,6 @@ export default class DroZone extends React.Component<Props> {
                         e.stopPropagation();
                     });
                 }}
-                className={classes}
             >
                 {this.props.children}
             </div>

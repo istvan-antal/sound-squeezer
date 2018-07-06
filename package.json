@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/istvan-antal/sound-squeezer#readme",
   "devDependencies": {
-    "electron": "^2.0.2",
     "electron-packager": "^12.1.0",
     "react-ts-runtime": "0.0.14",
     "tslint": "^5.10.0",

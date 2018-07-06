@@ -1,7 +1,8 @@
 .DropBox {
-    width: 100%;
-    height: 100%;
+    border: 1px #CCC dashed;
+    margin: 2rem;
+    padding: 1rem;
     &.hover {
-        background-color: green;
+        background-color: #f3f3f3;
     }
 }
