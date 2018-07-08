@@ -1,4 +1,7 @@
 import React from 'react';
 import './VBox.scss';
 
-export default ({ children }: { children: JSX.Element | JSX.Element[] }) => (<div className="VBox">{children}</div>);
+type ChildrenValues = JSX.Element | string | boolean;
+type Children = ChildrenValues | ChildrenValues[];
+
+export default ({ children }: { children: Children }) => (<div className="VBox">{children}</div>);
